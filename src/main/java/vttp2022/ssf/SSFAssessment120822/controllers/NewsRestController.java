@@ -1,12 +1,8 @@
 package vttp2022.ssf.SSFAssessment120822.controllers;
 
-import java.security.Timestamp;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.connection.ReturnType;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -29,12 +25,14 @@ public class NewsRestController {
     @Autowired
     private NewsRepository newsRepo;
 
+    private String isfound;
+
     
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<String> getNewsAsJson(@RequestParam 
     (name="article", defaultValue="") String id) {
                   // CONSTRUCT ERROR OBJECT
-                  boolean isfound;
+             
                 if (id != isfound) {
                     JsonObject errResp = Json
                             .createObjectBuilder()
@@ -47,5 +45,6 @@ public class NewsRestController {
                             .badRequest() //400
                             .body(payload);
     }
+                return null;
 }
 }

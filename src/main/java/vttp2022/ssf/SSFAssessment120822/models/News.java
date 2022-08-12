@@ -7,7 +7,7 @@ import jakarta.json.JsonObjectBuilder;
 public class News {
 
     /// variables
-    private String id; // news article ID 
+    private static String id; // news article ID 
     private static String publishedDate; //time stamp
     private static String title;
     private static String url; // clickable link
@@ -47,11 +47,11 @@ public class News {
 
 ////////////// Convert from JsonObject to Model object ---- (API: Lastest News Articles) ////////    
     
-    public static News create(JsonObject coinNewsJo, JsonObject newsData, int id){
+    public static News create(JsonObject coinNewsJo, JsonObject newsData){
        //INSTANTIATE NEWS ARTICLE
         News cn = new News();
 
-        cn.setId(Integer.toString(id));
+        cn.setId(coinNewsJo.toString());
         cn.setPublished_On(coinNewsJo.getString(publishedDate));
         cn.setTitle(coinNewsJo.getString(title));
         cn.setUrl(coinNewsJo.getString(url));
@@ -62,16 +62,19 @@ public class News {
         return cn;
     }
 
-    // JSON Object for save function
+    // JSON Object for save 
 
         public JsonObjectBuilder toJson() {
-            .add("title", title)
+            add("title", title)
             .add("url", url)
             .add("imageURL", imageURL)
             .add("body", body)
             .add("tags", tags)
             .add("categories",categories);
             return Json.createObjectBuilder();
+        }
+        private JsonObjectBuilder add(String string, String title2) {
+            return null;
         }
         public static News create(int i, JsonObject jo) {
             return null;

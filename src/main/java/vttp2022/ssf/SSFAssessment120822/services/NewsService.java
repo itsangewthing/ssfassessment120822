@@ -4,7 +4,6 @@ import java.io.Reader;
 import java.io.StringReader;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
-import java.security.Timestamp;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
@@ -12,7 +11,6 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.data.annotation.Id;
 import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -51,11 +49,11 @@ public class NewsService {
      
 
         /// 1---- GET URL WITH QUERY STRING
-        String uri = UriComponentsBuilder.fromUriString(URL)
+        String uri= UriComponentsBuilder.fromUriString(URL)
         .queryParam("API_KEY", key)
         .toUriString();
         /// 2---- CREATE GET REQUEST, GET URL 
-        RequestEntity<Void> req = RequestEntity.get(URL).build();
+        RequestEntity<Void> req = RequestEntity.get(uri).build();
             // Make the call to OpenWeatherApp
             RestTemplate template = new RestTemplate();
             ResponseEntity<String> resp;

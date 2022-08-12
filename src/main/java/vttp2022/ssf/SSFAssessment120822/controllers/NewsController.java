@@ -23,10 +23,10 @@ public class NewsController {
 
     ///// generate VIEW to GET the latest news
     @GetMapping(path="/")
-    public String getNews(Model model, @RequestParam String feeds){
+    public String getNews(Model model, @RequestParam String feeds, String categories){
 
             //String user = form.getFirst("user");
-            List<News> list = newsSvc.getArticles(feeds);
+            List<News> list = newsSvc.getArticles(feeds, categories);
             System.out.printf(">>> newsList: %s", list);
 
             model.addAttribute("newsList", list);

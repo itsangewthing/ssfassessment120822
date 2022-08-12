@@ -31,16 +31,16 @@
     <div>
         <table style="max-width:100px;">
             <tr> <div data-th-each="n : ${articlesList}"><td>
-                <p><span data-th-text="${n.ID}">ID:</span></p>
+                <p><span data-th-text="${ID}">ID:</span></p>
                 <p>Published On:<span data-tg-src="${n.pub}"></span></p>
-                <p><span data-th-text="${n.title}"></span></p>
-                <p><a data-th-href="${n.url}"><span data-th-text="${n.url}"></span></a>link</p>
-                <p><img data-th-src="${n.imageUrl}" width="100px"></p>
-                <p><span data-th-text="${n.body}"></span></p>
-                <p><data-th-each="${n.tags}">Tags:</p>
-                <p><data-th-each="${n.categories}">
+                <p><span data-th-text="${title}"></span></p>
+                <p><a data-th-href="${url}"><span data-th-text="${n.url}"></span></a>link</p>
+                <p><img data-th-src="${imageUrl}" width="100px"></p>
+                <p><span data-th-text="${body}"></span></p>
+                <p><data-th-each="${tags}">Tags:</p>
+                <p><data-th-each="${categories}">
                     <span data-th-text="${c}">Categories:</span> </p>
-                <p><form:checkbox items="{cn.save}" path="/articles"/>
+                <p><form:checkbox items="{save}" path="/articles"/>
                     <button type="checkbox">SAVE</button></p>
          </td>
             

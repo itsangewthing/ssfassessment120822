@@ -17,16 +17,16 @@ public class NewsRepository {
     
     public void save(String news, String payload){
         ValueOperations<String, String> ops = redisTemplate.opsForValue();
-        String saveArticle = (String) ops.get(news.toLowerCase());
+        String value = (String) ops.get(news.toLowerCase());
     }
 
     public Optional<String> get(String news){
         ValueOperations<String, String> valueOp = redisTemplate.opsForValue();
-        String value = valueOp.get(news.toLowerCase());
+        String value2 = valueOp.get(news.toLowerCase());
 
-        if (null == value)
+        if (null == value2)
             return Optional.empty();  // returns EMPTY BOX
-            return Optional.of(value); // returns BOX WITH DATA TYPE: STRING .
+            return Optional.of(value2); // returns BOX WITH DATA TYPE: STRING .
         
     }
 

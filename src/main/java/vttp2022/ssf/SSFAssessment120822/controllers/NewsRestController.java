@@ -15,7 +15,8 @@ import vttp2022.ssf.SSFAssessment120822.services.NewsService;
 
 @RestController
 // produces ---> ACCEPT: 
-@RequestMapping(path="/news/{id}" consumes= APPLICATION_JSON)
+@RequestMapping(path="/news/{id}") 
+// consumes= APPLICATION_JSON)
 public class NewsRestController {
     
     // INJECT SERVICE
@@ -46,5 +47,35 @@ public class NewsRestController {
                             .body(payload);
     }
                 return null;
+}
+
+
+public NewsService getNewsSvc() {
+        return newsSvc;
+}
+
+
+public void setNewsSvc(NewsService newsSvc) {
+        this.newsSvc = newsSvc;
+}
+
+
+public NewsRepository getNewsRepo() {
+        return newsRepo;
+}
+
+
+public void setNewsRepo(NewsRepository newsRepo) {
+        this.newsRepo = newsRepo;
+}
+
+
+public String getIsfound() {
+        return isfound;
+}
+
+
+public void setIsfound(String isfound) {
+        this.isfound = isfound;
 }
 }
